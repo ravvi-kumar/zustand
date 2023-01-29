@@ -10,8 +10,8 @@ interface IMyStore {
 
 export const useMyStore = create<IMyStore>()(
   devtools((set) => ({
-    fruits: ["apple", "banana", "grapes", "orange"],
-    vegetables: ["potato", "tomato", "carrot", "onions"],
+    fruits: ["apple", "banana", "grapes"],
+    vegetables: ["potato", "tomato", "onions"],
     addFruit: (newFruit) =>
       set((state) => ({ ...state, fruits: [...state.fruits, newFruit] })),
     addVegetables: (newVegetable) =>

@@ -1,5 +1,5 @@
-import { shallow } from "zustand/shallow";
 import { useRef } from "react";
+import { shallow } from "zustand/shallow";
 import { useMyStore } from "../store/example1";
 
 export default function VegetableComp() {
@@ -20,17 +20,16 @@ export default function VegetableComp() {
       inputRef.current.value = "";
     }
   };
-  console.log("vegeables Count:", vegetables.length);
+  console.log("Total vegeables:", vegetables.length);
 
   return (
     <>
-      <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
-        {vegetables.map((vegetable, idx) => (
-          <h3 key={idx}>{vegetable}</h3>
-        ))}
-      </div>
+      {JSON.stringify(vegetables)}
+      <br />
       <input type="text" ref={inputRef} />
-      <button onClick={handleSubmit}>Add Vegetable</button>
+      <button onClick={handleSubmit} style={{ fontSize: "14px" }}>
+        Add Vegetable
+      </button>
     </>
   );
 }
