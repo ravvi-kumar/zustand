@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { shallow } from "zustand/shallow";
-import { useMyStore } from "../store/example1";
+import { useMyStore } from "../../store/example3.1";
 
 export default function FruitsComp() {
   const inputRef = useRef<HTMLInputElement>(null);

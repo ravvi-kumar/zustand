@@ -1,23 +1,14 @@
 import { create } from "zustand";
-import { devtools } from "zustand/middleware";
 
-interface IMyStore {
-  fruits: string[];
-  vegetables: string[];
-  addFruit: (newFruit: string) => void;
-  addVegetables: (newVegetable: string) => void;
+interface ITodoStore {
+  todos: String[];
+  addTodo: (text: string) => void;
+  removeTodo: (index: number) => void;
 }
 
-export const useMyStore = create<IMyStore>()(
-  devtools((set) => ({
-    fruits: ["apple", "banana", "grapes"],
-    vegetables: ["potato", "tomato", "onions"],
-    addFruit: (newFruit) =>
-      set((state) => ({ ...state, fruits: [...state.fruits, newFruit] })),
-    addVegetables: (newVegetable) =>
-      set((state) => ({
-        ...state,
-        vegetables: [...state.vegetables, newVegetable],
-      })),
-  }))
-);
+export const useTodoStore = create<ITodoStore>()((set) => ({
+  todos: [],
+  addTodo: (text) => set((state) => ({ todos: [...state.todos, text] })),
+  removeTodo: (index) =>
+    set((state) => ({ todos: state.todos.filter((_, i) => i !== index) })),
+}));
